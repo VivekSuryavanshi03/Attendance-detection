@@ -1,13 +1,34 @@
-[1mdiff --git a/install_cmake.sh b/install_cmake.sh[m
-[1mindex aa81d52..26f2cb4 100644[m
-[1m--- a/install_cmake.sh[m
-[1m+++ b/install_cmake.sh[m
-[36m@@ -1,8 +1,4 @@[m
- #!/bin/bash[m
- echo "Installing CMake..."[m
- apt-get update[m
-[31m-<<<<<<< HEAD[m
- apt-get install -y cmake build-essential[m
-[31m-=======[m
-[31m-apt-get install -y cmake build-essential[m
-[31m->>>>>>> befd269f41fd24c64c4ff8f823d3facfd386fc73[m
+#!/bin/bash
+
+# Ensure that the script is running with root privileges
+if [ "$(id -u)" -ne 0 ]; then
+  echo "Please run this script with sudo or as root."
+  exit 1
+fi
+
+echo "Installing CMake..."
+
+# Update package list
+sudo apt-get update -y
+
+# Install dependencies
+sudo apt-get install -y software-properties-common
+
+# Add the CMake PPA (Personal Package Archive)
+sudo add-apt-repository -y ppa:kitware/ppa
+
+# Update again after adding the repository
+sudo apt-get update -y
+
+# Install cmake
+sudo apt-get install -y cmake
+
+# Check cmake version
+cmake --version
+
+if [ $? -eq 0 ]; then
+  echo "CMake installed successfully."
+else
+  echo "Error: CMake installation failed."
+  exit 1
+fi
