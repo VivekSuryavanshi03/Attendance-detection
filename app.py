@@ -6,7 +6,7 @@ import face_recognition
 from enroll import save_enrollment_image
 from attendance import load_known_faces, mark_attendance
 
-CAPTURE_COUNT = 3
+CAPTURE_COUNT = 1
 RESIZE_FACTOR = 0.25
 MODEL = "hog"
 TOLERANCE = 0.55
