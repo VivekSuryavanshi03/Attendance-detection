@@ -6,6 +6,8 @@ ENROLLMENT_FOLDER = "enrollment_images"
 CAPTURE_COUNT = 3
 ENROLL_IMG_FORMAT = ".png"
 
+#enrollement
+
 def create_enrollment_folder(student_name):
     path = os.path.join(ENROLLMENT_FOLDER, student_name)
     os.makedirs(path, exist_ok=True)
