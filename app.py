@@ -1,3 +1,8 @@
+import os
+
+# Run deploy.sh before starting the Streamlit app
+os.system('bash deploy.sh')
+
 import streamlit as st
 import cv2
 import time
