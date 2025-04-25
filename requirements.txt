@@ -5,6 +5,6 @@ pandas
 flask
 streamlit
 Pillow
-cmake
-dlib
+cmake==3.21.0
+dlib==19.24.0
 
